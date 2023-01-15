@@ -62,9 +62,9 @@ next.addEventListener('click', () => {
                     addonplans.querySelectorAll('.yearly-plan .amount').forEach(ylamt=>{
                         addontotal = Number(addontotal) + Number(ylamt.textContent);
                         if(selectedPlan.hasChildNodes()){
-                        totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.monthly-plan .amount').textContent)}/mo`;
+                        totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.yearly-plan .amount').textContent)}/yr`;
                         }else {
-                            totalamount.textContent = addontotal;
+                            totalamount.textContent = `$${addontotal}/yr`;
                         }
                     })
 
@@ -81,7 +81,7 @@ next.addEventListener('click', () => {
                         if(selectedPlan.hasChildNodes()){
                         totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.monthly-plan .amount').textContent)}/mo`;
                         }else {
-                            totalamount.textContent = addontotal;
+                            totalamount.textContent = `$${addontotal}/mo`;
                         }
                     })
                 }
@@ -128,33 +128,17 @@ back.addEventListener('click',()=>{
                     addonplans.lastElementChild.remove();
                     totalamount.textContent="";
                 }
-                if(monthlyToggle.classList.contains("monthly-toggle")){
-                    endly.textContent = "(yearly)";
-                    selectedPlan.lastElementChild.firstElementChild.appendChild(endly);
-                    selectedPlan.lastElementChild.firstElementChild.appendChild(changeplan);
-                    addonplans.querySelectorAll('.yearly-plan .amount').forEach(ylamt=>{
-                        addontotal = Number(addontotal) + Number(ylamt.textContent);
-                        totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.yearly-plan .amount').textContent)}/yr`;
-                    })
-            
-                }else{
-                    endly.textContent = "(monthly)";
-                    if(selectedPlan.hasChildNodes()){
-                    selectedPlan.lastElementChild.firstElementChild.appendChild(endly);
-                    selectedPlan.lastElementChild.firstElementChild.appendChild(changeplan);
-                    totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.monthly-plan .amount').textContent)}/mo`;
-                    }
-                    
-                    addonplans.querySelectorAll('.monthly-plan .amount').forEach(mlamt=>{
-                        addontotal = addontotal + Number(mlamt.textContent);
-                        if(selectedPlan.hasChildNodes()){
-                        totalamount.textContent = `$${Number(addontotal) + Number(selectedPlan.querySelector('.monthly-plan .amount').textContent)}/mo`;
-                        }else {
-                            totalamount.textContent="";
-                        }
-                    })
-                }
             })
+
+            if(selectedPlan.hasChildNodes()) {
+                selectedPlan.lastElementChild.remove();
+                totalamount.textContent = "";
+            }
+
+            plans.forEach(pl=>{
+                pl.checked = false;
+            })
+
             roller.classList.remove('roller-toggle');
         }else {
             navCount[i].style.backgroundColor = "transparent";
@@ -165,6 +149,7 @@ back.addEventListener('click',()=>{
 
 
 toggle.addEventListener('click',()=>{
+    totalamount.textContent = '';
     plans.forEach(pl=>{
         pl.checked=false;
         if(selectedPlan.hasChildNodes()){
