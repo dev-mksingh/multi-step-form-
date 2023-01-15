@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header {
+    background-image: url('assets/images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 30vh;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul a {
+    display: block;
+    text-decoration: none;
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    text-align: center;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+ul a:hover {
+    background-color:cadetblue;
+    color: white;
+}
+
+p {
+    color: hsl(231, 11%, 63%);
+}
+
+.nav-bar {
+    height: 100%;
+}
+
+.nav-bar .nav-list {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0 100px;
+}
+
+.nav-details {
+    display: none;
+}
+
+main {
+    width: 70%;
+    max-width: 400px;
+    height:65vh;
+    margin: auto;
+    margin-top: -40px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 10px 5px grey;
+    border-radius: 10px;
+}
+
+footer {
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+main section {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+}
+
+.step1>p {
+    margin-top: 10px;
+}
+
+form {
+    margin-top: 30px;
+}
+
+.steps label {
+    display: block;
+    margin-top: 10px;
+    color: hsl(213, 96%, 18%);
+}
+
+
+.step1 input {
+    display: block;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    margin-left: 5px;
+    color: hsl(231, 11%, 63%);
+}
+
+.step1 label span {
+    display: inline-block;
+    color: red;
+    font-size: 12px;
+    width: 100%;
+    text-align: right;
+}
+
+.step2 {
+    height: 100%;
+}
+
+.step2 label {
+    display: flex;
+    border: 1px solid grey;
+    align-items: center;
+    border-radius: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.step2 label > * {
+    margin-left: 40px;
+}
+
+.step2 input {
+    margin-left: -50px;
+}
+
+
+.step2 label img {
+    width: 50px;
+    height: 50px;
+}
+
+.step3 label {
+    width: 100%;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.step3 label div {
+    width: 400px;
+    text-align: center;
+}
+
+.step3 label div .addoncontainer {
+    width: 200px;
+}
+
+h1 {
+    text-align: left;
+    color: hsl(213, 96%, 18%);
+}
+
+
+.selectplans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: hsl(217, 100%, 97%);
+    height: 40px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid transparent;
+    font-weight: bold;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+.step2 label:hover , .step3 label:hover{
+    background-color: hsl(217, 100%, 97%);
+}
+
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: hsl(213, 96%, 18%);
+    border: 1px solid transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.roller {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateX(0px);
+    transition: transform;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+
+.roller-toggle {
+    transform: translateX(15px);
+}
+
+.monthly {
+    color: hsl(213, 96%, 18%);
+}
+
+.monthly-toggle {
+    color: grey;
+}
+
+.yearly {
+    color: grey;
+}
+
+.yearly-toggle {
+    color: hsl(213, 96%, 18%);
+}
+
+.monthly-plan-toggle {
+    display: none;
+}
+
+.yearly-plan {
+    display: none;
+    font-size: 14px;
+}
+
+.yearly-plan-toggle {
+    display: block;
+}
+
+
+.next {
+    display: block;
+    width: 100px;
+    height: 40px;
+    background-color: hsl(213, 96%, 18%);
+    border-radius: 5px;
+    color: hsl(229, 24%, 87%);
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.next-toggle {
+    display: none;
+}
+
+.confirm{
+    display: none;
+    width: 100px;
+    height: 40px;
+    background-color: hsl(213, 96%, 18%);
+    border-radius: 5px;
+    color: white;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.confirm-toggle {
+    display: block;
+}
+
+.addon1,.addon2, .addon3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.selected-plan > *, .addon-plan > *{
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.selected-plan .added-to-finishingup, .addon-plan .added-to-finishingup {
+    display: none;
+}
+
+.added-to-finishingup {
+    color: hsl(213, 96%, 18%);
+}
+
+.step3 .monthly-plan, .step3 .yearly-plan {
+    color: hsl(243, 100%, 62%);
+}
+
+.step3 .added-to-finishingup {
+    color: hsl(231, 11%, 63%);
+}
+
+.addoncontainer h2 {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 16px;
+}
+
+.addoncontainer p {
+    font-size: 12px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+.changeplan {
+    width: 50px;
+    display: block;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.endly {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.finaltotal {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.selected-plan .monthly-plan, .selected-plan .yearly-plan {
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.selected-plan a{
+    color: hsl(231, 11%, 63%);
+}
+
+.addon-plan .monthly-plan, .addon-plan .yearly-plan, .total-amount {
+    color: hsl(243, 100%, 62%);
+}
+
+.step5 img {
+    width: 100px;
+    height: 100px;
+}
+
+.step5 {
+    align-items: center;
+}
+
+.step5 h1, .step5 p {
+    margin-top: 15px;
+}
+
+@media screen and (min-width:756px) {
+    body {
+        flex-direction: row;
+        height: 100vh;
+        padding: 10px;
+    }
+    
+    body > * {
+        height: 100%;
+    }
+
+    header {
+        background-image: url('assets/images/bg-sidebar-desktop.svg');
+        border-radius: 10px;
+        width: 30%;
+    }
+
+    .nav-bar .nav-list {
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0 20px 0 20px;
+    }
+    
+    .nav-details {
+        display: block;
+        margin-left: 20px;
+    }
+
+    .nav-list li {
+        display: flex;
+        width: 100%;
+    }
+
+    .container {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        margin-top: 0px;
+        width: 100%;
+        max-width: 80%;
+        box-shadow: none;
+    }
+
+    footer {
+        max-width: 80%;
+    }
+
+    main section {
+        width: 100%;
+        margin-top: 10vh;
+    }
+
+
+    .step1 input {
+        width: 80%;
+    }
+
+    .step2 label{
+        width: 30%;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    .selected-plan-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40vh;
+        margin-top: 10px;
+    }
+
+    .step2 input {
+        margin-top: -30px;
+    }
+
+    .step2 img {
+        margin-top: 30px;
+    }
+
+    .step2 label > * {
+        margin-left: 0;
+    }
+
+    .step2 label div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 25px;
+    }
+
+    .selectplans {
+        margin-top: 30px;
+        height: 10vh;
+    }
+
+    .step3 label {
+        height: 60px;
+    }
+
+    .step3 label>div {
+        margin-left: -200px;
+    }
+}
